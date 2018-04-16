@@ -140,4 +140,14 @@ Akamai FastDNS
         name: akamai-dns
         key: accessToken
 
+DNSPod
+======
+
+.. code-block:: yaml
+
+   dnspod:
+     apiKeySecretRef:
+       name: dnspod-api-key-secret
+       key: api-key
+
 .. _`Let's Encrypt`: https://letsencrypt.org
