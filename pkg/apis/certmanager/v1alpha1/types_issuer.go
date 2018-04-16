@@ -163,6 +163,7 @@ type ACMEIssuerDNS01Provider struct {
 	DigitalOcean *ACMEIssuerDNS01ProviderDigitalOcean `json:"digitalocean,omitempty"`
 	AcmeDNS      *ACMEIssuerDNS01ProviderAcmeDNS      `json:"acmedns,omitempty"`
 	RFC2136      *ACMEIssuerDNS01ProviderRFC2136      `json:"rfc2136,omitempty"`
+	DNSPod     *ACMEIssuerDNS01ProviderDNSPod     `json:"dnspod,omitempty"`
 }
 
 // ACMEIssuerDNS01ProviderAkamai is a structure containing the DNS
@@ -214,6 +215,12 @@ type ACMEIssuerDNS01ProviderAzureDNS struct {
 
 	// + optional
 	HostedZoneName string `json:"hostedZoneName"`
+}
+
+// ACMEIssuerDNS01ProviderDNSPod is a structure containing the
+// configuration for DNSPod
+type ACMEIssuerDNS01ProviderDNSPod struct {
+	APIKey SecretKeySelector `json:"apiKeySecretRef"`
 }
 
 // ACMEIssuerDNS01ProviderAcmeDNS is a structure containing the
