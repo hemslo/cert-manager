@@ -82,6 +82,12 @@
   version = "v1.1.0"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/decker502/dnspod-go"
+  packages = ["."]
+  revision = "83a3ba562b048c9fc88229408e593494b7774684"
+
+[[projects]]
   name = "github.com/dgrijalva/jwt-go"
   packages = ["."]
   revision = "d2709f9f1f31ebcda9651b03077758c1f3a0018c"
