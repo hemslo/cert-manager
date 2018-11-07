@@ -25,7 +25,6 @@ import (
 
 	"github.com/golang/glog"
 	intscheme "github.com/jetstack/cert-manager/pkg/client/clientset/versioned/scheme"
-	"k8s.io/api/core/v1"
 	extv1beta1 "k8s.io/api/extensions/v1beta1"
 	apiextcs "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset/typed/apiextensions/v1beta1"
 	"k8s.io/apimachinery/pkg/api/errors"

@@ -34,8 +34,8 @@ import (
 	"github.com/jetstack/cert-manager/pkg/issuer/acme/dns/clouddns"
 	"github.com/jetstack/cert-manager/pkg/issuer/acme/dns/cloudflare"
 	"github.com/jetstack/cert-manager/pkg/issuer/acme/dns/digitalocean"
-	"github.com/jetstack/cert-manager/pkg/issuer/acme/dns/rfc2136"
 	"github.com/jetstack/cert-manager/pkg/issuer/acme/dns/dnspod"
+	"github.com/jetstack/cert-manager/pkg/issuer/acme/dns/rfc2136"
 	"github.com/jetstack/cert-manager/pkg/issuer/acme/dns/route53"
 	"github.com/jetstack/cert-manager/pkg/issuer/acme/dns/util"
 )
@@ -61,7 +61,7 @@ type dnsProviderConstructors struct {
 	acmeDNS      func(host string, accountJson []byte, dns01Nameservers []string) (*acmedns.DNSProvider, error)
 	rfc2136      func(nameserver, tsigAlgorithm, tsigKeyName, tsigSecret string, dns01Nameservers []string) (*rfc2136.DNSProvider, error)
 	digitalOcean func(token string, dns01Nameservers []string) (*digitalocean.DNSProvider, error)
-	dnspod     func(apikey string) (*dnspod.DNSProvider, error)
+	dnspod       func(apikey string) (*dnspod.DNSProvider, error)
 }
 
 // Solver is a solver for the acme dns01 challenge.
@@ -313,6 +313,7 @@ func (s *Solver) solverForChallenge(issuer v1alpha1.GenericIssuer, ch *v1alpha1.
 		)
 		if err != nil {
 			return nil, fmt.Errorf("error instantiating rfc2136 challenge solver: %s", err.Error())
+		}
 	case providerConfig.DNSPod != nil:
 		apiKeySecret, err := s.secretLister.Secrets(s.resourceNamespace).Get(providerConfig.DNSPod.APIKey.Name)
 		if err != nil {
